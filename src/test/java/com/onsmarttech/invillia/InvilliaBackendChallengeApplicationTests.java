@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 public class InvilliaBackendChallengeApplicationTests {
 
 	@Autowired
-	private MockMvc mvc;
+	protected MockMvc mvc;
 
 	@Autowired
 	protected TestRestTemplate template;
