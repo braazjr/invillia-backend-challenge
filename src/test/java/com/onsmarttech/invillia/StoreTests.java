@@ -46,4 +46,8 @@ public class StoreTests extends InvilliaBackendChallengeApplicationTests {
 				.andExpect(status().isOk());
 	}
 
+	@Test
+	public void testRetrieveStore() throws Exception {
+		this.mvc.perform(get("/stores/filter").param("name", "Fiat").with(httpBasic("spring", "secret"))).andDo(print()).andReturn();
+	}
 }
