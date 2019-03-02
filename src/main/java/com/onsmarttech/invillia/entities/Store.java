@@ -26,6 +26,14 @@ public class Store {
 	public Store() {
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -44,7 +52,7 @@ public class Store {
 
 	@Override
 	public String toString() {
-		return "Store [name=" + name + ", address=" + address + "]";
+		return "Store [id=" + id + ", name=" + name + ", address=" + address + "]";
 	}
 
 }
