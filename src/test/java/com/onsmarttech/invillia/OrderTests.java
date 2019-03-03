@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import com.onsmarttech.invillia.entities.Order;
 import com.onsmarttech.invillia.entities.OrderItem;
 import com.onsmarttech.invillia.entities.Store;
+import com.onsmarttech.invillia.entities.enums.OrderStatus;
 import com.onsmarttech.invillia.utils.JsonUtil;
 
 public class OrderTests extends InvilliaBackendChallengeApplicationTests {
@@ -24,7 +25,7 @@ public class OrderTests extends InvilliaBackendChallengeApplicationTests {
 		Order order = new Order();
 		order.setAddress("Rio de Janeiro - RJ");
 		order.setConfirmationDate(LocalDate.parse("2019-03-03"));
-		order.setStatus(true);
+		order.setStatus(OrderStatus.PAID);
 		order.setStore(new Store(1));
 
 		OrderItem item = new OrderItem();

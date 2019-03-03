@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.onsmarttech.invillia.entities.enums.OrderStatus;
+
 @Entity
 @Table(name = "store_order")
 public class Order {
@@ -31,7 +33,7 @@ public class Order {
 
 	@NotNull
 	private LocalDate confirmationDate;
-	private Boolean status;
+	private OrderStatus status;
 
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "order")
 	private List<OrderItem> orderItems;
@@ -64,11 +66,11 @@ public class Order {
 		this.confirmationDate = confirmationDate;
 	}
 
-	public Boolean getStatus() {
+	public final OrderStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public final void setStatus(OrderStatus status) {
 		this.status = status;
 	}
 
