@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onsmarttech.invillia.dao.StoreFilter;
@@ -27,24 +26,18 @@ public class StoreController {
 	@Autowired
 	private StoreService service;
 
-	@GetMapping
-	@ResponseBody
-	public String index() {
-		return "teste";
-	}
-
 	@PostMapping
 	public ResponseEntity<Store> create(@Valid @RequestBody Store store) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.create(store));
 	}
 
 	@GetMapping(value = "/{idStore}")
-	public ResponseEntity<Store> findById(@PathVariable Long idStore) {
+	public ResponseEntity<Store> findById(@PathVariable Integer idStore) {
 		return ResponseEntity.ok(service.findById(idStore));
 	}
 
 	@PutMapping(value = "/{idStore}")
-	public ResponseEntity<Store> update(@PathVariable Long idStore, @Valid @RequestBody Store store) {
+	public ResponseEntity<Store> update(@PathVariable Integer idStore, @Valid @RequestBody Store store) {
 		return ResponseEntity.ok(service.update(idStore, store));
 	}
 

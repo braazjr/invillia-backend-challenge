@@ -29,7 +29,7 @@ public class StoreService {
 		return repo.saveAndFlush(store);
 	}
 
-	public Store update(Long idStore, @Valid Store store) {
+	public Store update(Integer idStore, @Valid Store store) {
 		Optional<Store> storeSaved = repo.findById(idStore);
 
 		if (!storeSaved.isPresent()) {
@@ -39,7 +39,7 @@ public class StoreService {
 		return repo.saveAndFlush(store);
 	}
 
-	public Store findById(Long idStore) {
+	public Store findById(Integer idStore) {
 		Optional<Store> storeSaved = repo.findById(idStore);
 
 		return storeSaved.isPresent() ? storeSaved.get() : new Store();

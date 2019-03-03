@@ -12,8 +12,8 @@ import org.hibernate.validator.constraints.Length;
 public class Store {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@NotBlank
 	@Length(min = 3, max = 20)
@@ -26,11 +26,15 @@ public class Store {
 	public Store() {
 	}
 
-	public Long getId() {
+	public Store(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -48,11 +52,6 @@ public class Store {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	@Override
-	public String toString() {
-		return "Store [id=" + id + ", name=" + name + ", address=" + address + "]";
 	}
 
 }

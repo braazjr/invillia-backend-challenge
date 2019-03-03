@@ -9,7 +9,7 @@ import com.onsmarttech.invillia.entities.Store;
 import com.onsmarttech.invillia.repositories.store.StoreRepositoryCustom;
 
 @Repository
-public interface StoreRepository extends JpaRepository<Store, Long>, StoreRepositoryCustom {
+public interface StoreRepository extends JpaRepository<Store, Integer>, StoreRepositoryCustom {
 
 	Optional<Store> findByName(String name);
 

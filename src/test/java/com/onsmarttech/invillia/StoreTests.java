@@ -17,15 +17,10 @@ import com.onsmarttech.invillia.entities.Store;
 public class StoreTests extends InvilliaBackendChallengeApplicationTests {
 
 	@Test
-	public void testGetStores() throws Exception {
-		this.mvc.perform(get("/stores").with(httpBasic("spring", "secret"))).andExpect(status().isOk());
-	}
-
-	@Test
 	public void testCreateStore() throws Exception {
 		Store store = new Store();
 		store.setName("Citroen");
-		store.setAddress("Servidão Idalino Damásio Fernandes, 169 - Ingleses - Florianópolis - SC");
+		store.setAddress("Ingleses - Florianópolis - SC");
 
 		String json = new ObjectMapper().writeValueAsString(store);
 
