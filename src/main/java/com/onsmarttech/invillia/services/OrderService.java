@@ -1,5 +1,6 @@
 package com.onsmarttech.invillia.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -7,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.onsmarttech.invillia.dao.OrderFilter;
 import com.onsmarttech.invillia.entities.Order;
 import com.onsmarttech.invillia.entities.Store;
 import com.onsmarttech.invillia.repositories.OrderRepository;
@@ -30,6 +32,10 @@ public class OrderService {
 
 		order.setStore(store.get());
 		return repo.saveAndFlush(order);
+	}
+
+	public List<Order> filter(OrderFilter filter) {
+		return repo.filter(filter);
 	}
 
 }
