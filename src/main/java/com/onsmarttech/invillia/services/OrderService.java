@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import com.onsmarttech.invillia.dao.OrderFilter;
 import com.onsmarttech.invillia.entities.Order;
 import com.onsmarttech.invillia.entities.Store;
+import com.onsmarttech.invillia.entities.enums.OrderStatus;
+import com.onsmarttech.invillia.entities.enums.PaymentStatus;
 import com.onsmarttech.invillia.repositories.OrderRepository;
 import com.onsmarttech.invillia.repositories.StoreRepository;
 
@@ -36,6 +38,23 @@ public class OrderService {
 
 	public List<Order> filter(OrderFilter filter) {
 		return repo.filter(filter);
+	}
+
+	public Order orderRefund(Integer idOrder) throws Exception {
+		Optional<Order> orderOptional = repo.findById(idOrder);
+
+		if (!orderOptional.isPresent()) {
+			throw new Exception("Order not found!");
+		}
+
+		Order order = orderOptional.get();
+		order.setStatus(OrderStatus.REFUNDED);
+
+		if (order.getPayment() != null) {
+			order.getPayment().setStatus(PaymentStatus.CANCELED);
+		}
+
+		return repo.saveAndFlush(order);
 	}
 
 }

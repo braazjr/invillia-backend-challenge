@@ -2,42 +2,44 @@ package com.onsmarttech.invillia.dao;
 
 import java.time.LocalDate;
 
+import com.onsmarttech.invillia.entities.enums.OrderStatus;
+
 public class OrderFilter {
 
-	private String status;
+	private OrderStatus status;
 	private LocalDate confirmationDateInitial;
 	private LocalDate confirmationDateFinal;
 	private Integer storeId;
 
-	public final String getStatus() {
+	public OrderStatus getStatus() {
 		return status;
 	}
 
-	public final void setStatus(String status) {
+	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
 
-	public final LocalDate getConfirmationDateInitial() {
+	public LocalDate getConfirmationDateInitial() {
 		return confirmationDateInitial;
 	}
 
-	public final void setConfirmationDateInitial(LocalDate confirmationDateInitial) {
+	public void setConfirmationDateInitial(LocalDate confirmationDateInitial) {
 		this.confirmationDateInitial = confirmationDateInitial;
 	}
 
-	public final LocalDate getConfirmationDateFinal() {
+	public LocalDate getConfirmationDateFinal() {
 		return confirmationDateFinal;
 	}
 
-	public final void setConfirmationDateFinal(LocalDate confirmationDateFinal) {
+	public void setConfirmationDateFinal(LocalDate confirmationDateFinal) {
 		this.confirmationDateFinal = confirmationDateFinal;
 	}
 
-	public final Integer getStoreId() {
+	public Integer getStoreId() {
 		return storeId;
 	}
 
-	public final void setStoreId(Integer storeId) {
+	public void setStoreId(Integer storeId) {
 		this.storeId = storeId;
 	}
 

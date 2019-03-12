@@ -32,7 +32,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
 		if (filter.getStatus() != null) {
-			predicates.add(builder.equal(order.get("status"), filter.getStatus().toString()));
+			predicates.add(builder.equal(order.get("status"), filter.getStatus()));
 		}
 
 		if (filter.getStoreId() != null) {

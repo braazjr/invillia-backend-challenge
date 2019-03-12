@@ -5,18 +5,22 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.onsmarttech.invillia.entities.enums.OrderStatus;
 
 @Entity
@@ -33,6 +37,8 @@ public class Order {
 
 	@NotNull
 	private LocalDate confirmationDate;
+	
+	@Enumerated(EnumType.STRING)
 	private OrderStatus status;
 
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "order")
@@ -41,6 +47,10 @@ public class Order {
 	@ManyToOne
 	@JoinColumn(name = "store_id")
 	private Store store;
+
+	@OneToOne(mappedBy = "order")
+	@JsonIgnore
+	private Payment payment;
 
 	public Integer getId() {
 		return id;
@@ -88,6 +98,14 @@ public class Order {
 
 	public void setStore(Store store) {
 		this.store = store;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 
 }
