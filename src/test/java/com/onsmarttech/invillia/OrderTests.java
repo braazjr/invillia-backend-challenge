@@ -21,11 +21,11 @@ import com.onsmarttech.invillia.utils.JsonUtil;
 public class OrderTests extends InvilliaBackendChallengeApplicationTests {
 
 	@Test
-	public void testCreateOrder() throws Exception {
+	public void testCreateOrderWithItems() throws Exception {
 		Order order = new Order();
 		order.setAddress("Rio de Janeiro - RJ");
-		order.setConfirmationDate(LocalDate.parse("2019-03-03"));
-		order.setStatus(OrderStatus.PAID);
+		order.setConfirmationDate(LocalDate.now());
+		order.setStatus(OrderStatus.PENDING);
 		order.setStore(new Store(1));
 
 		OrderItem item = new OrderItem();

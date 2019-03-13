@@ -30,6 +30,7 @@ public class StoreTests extends InvilliaBackendChallengeApplicationTests {
 
 	@Test
 	public void testUpdateStore() throws Exception {
+		testCreateStore();
 		MvcResult result = this.mvc.perform(get("/stores/1").with(httpBasic("spring", "secret"))).andDo(print()).andReturn();
 		Store store = new ObjectMapper().readValue(result.getResponse().getContentAsString(), Store.class);
 
@@ -42,7 +43,7 @@ public class StoreTests extends InvilliaBackendChallengeApplicationTests {
 	}
 
 	@Test
-	public void testRetrieveStore() throws Exception {
+	public void testRetrieveStoreWithParameters() throws Exception {
 		this.mvc.perform(get("/stores/filter").param("name", "Fiat").with(httpBasic("spring", "secret"))).andDo(print()).andReturn();
 	}
 }
