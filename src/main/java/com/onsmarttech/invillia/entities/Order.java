@@ -20,6 +20,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.onsmarttech.invillia.entities.enums.OrderStatus;
 
@@ -36,6 +37,7 @@ public class Order {
 	private String address;
 
 	@NotNull
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate confirmationDate;
 	
 	@Enumerated(EnumType.STRING)
