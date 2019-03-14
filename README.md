@@ -54,6 +54,7 @@ scalability.
 * Docker
  
 	** I would like to do, but I am still studying technology
+	
 * AWS 
 
 	** I did not manage my time with quality, which did not allow me the time for publication
